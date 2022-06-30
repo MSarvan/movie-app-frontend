@@ -5,7 +5,7 @@ function App() {
   const [movie, setMovie] = useState([]);
 
   const showData = () => {
-    fetch("http://localhost:7890/movie")
+    fetch("https://gv-movieapp-backend.herokuapp.com/movie")
       .then((res) => res.json())
       .then((res) => setMovie(res))
       .catch((err) => console.log(err));
@@ -15,33 +15,36 @@ function App() {
 
   return (
     <div className="App">
+      <br />
       <h2>MOVIE APP</h2>
+      <button>Add Movies</button>
+      <br /><br />
       <div>
         <table>
           <thead>
             <tr>
-              <th style={{ width: "100px" }}>Title</th>
-              <th>Ratings</th>
-              <th>Release Date</th>
-              <th>Cast</th>
+              <th className="title">Title</th>
+              <th className="ratings">Ratings</th>
+              <th className="date">Release Date</th>
+              <th className="cast">Cast</th>
               <th>Genre</th>
-              <th>To Edit</th>
-              <th>To Delete</th>
+              <th className="modify">Modify</th>
+              <th className="modify">Delete</th>
             </tr>
           </thead>
           <tbody>
             {movie.map((e, i) => (
               <tr key={e._id}>
-                <th>{e.title}</th>
-                <th>{e.ratings}</th>
-                <th>{e.release_date}</th>
-                <th>{e.cast}</th>
+                <th id="title" className="title">{e.title}</th>
+                <th className="ratings">{e.ratings}</th>
+                <th className="date">{e.release_date}</th>
+                <th className="cast">{e.cast}</th>
                 <th>{e.genre}</th>
                 <td>
-                  <button>Edit</button>
+                  <button className="btn">Edit</button>
                 </td>
                 <td>
-                  <button>Delete</button>
+                  <button className="btn">Delete</button>
                 </td>
               </tr>
             ))}
