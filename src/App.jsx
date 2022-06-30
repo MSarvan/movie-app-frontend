@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <br />
       <h2>MOVIE APP</h2>
-      <button>Add Movies</button>
+      <button className="add">Add Movies</button>
       <br /><br />
       <div>
         <table>
